@@ -1,0 +1,15 @@
+[package]
+name = "productmap"
+version = "1.0.0"
+authors = ["Myridia <info@myridia.com>"]
+edition = "2024"
+publish = false
+
+[dependencies]
+tera = { version = "*", default-features = false }
+couch_rs = {version ="*"}
+serde_json = {version ="*"}
+tokio = {version = "1.11.0", features = ["full"]}
+tokio-util = {version = "0.7.3", features = ["full"]}
+anyhow = {version = "1.0.62"}
+
