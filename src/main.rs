@@ -11,5 +11,19 @@ use tera::Tera;
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn Error>> {
     println!("...main");
+    let templates = "templates/*.html";
+    let tera = match Tera::new(templates) {
+        Ok(t) => t,
+        Err(e) => {
+            println!("Parsing error(s): {}", e);
+            ::std::process::exit(1);
+        }
+    };
+    let mut context = Context::new();
+    let r = tera.render("index.html", &context)?;
+    let path = &format!("website/public/index.html");
+    let mut output = File::create(path)?;
+    let _w = write!(output, "{}", r);
+
     Ok(())
 }
