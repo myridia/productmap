@@ -25,5 +25,13 @@ async fn main() -> Result<(), Box<dyn Error>> {
     let mut output = File::create(path)?;
     let _w = write!(output, "{}", r);
 
+    for i in 1..5000 {
+        let mut context = Context::new();
+        let r = tera.render("index.html", &context)?;
+        let path = &format!("website/public/product_{0}.html", i);
+        let mut output = File::create(path)?;
+        let _w = write!(output, "{}", r);
+    }
+
     Ok(())
 }
