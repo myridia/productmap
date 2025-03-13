@@ -3,7 +3,7 @@
 debug/
 target/
 
-/website/public/
+/website/public/*
 !/website/public/.hidden
 
 
