@@ -1,0 +1,14 @@
+version: '3'
+services:
+  en_lighttpd:
+    container_name: en_lighttpd
+    image: veto64/lighttpd
+    ports:
+        - "80:80" 
+    volumes:
+      - ../public:/var/www/html
+      #- ../public:/var/public/
+      #- ../cgi-bin:/usr/bin/cgi-bin/
+      - ./etc/lighttpd/conf-enabled:/etc/lighttpd/conf-enabled
+    tty: true
+
