@@ -24,25 +24,37 @@ async fn main() -> Result<(), Box<dyn Error>> {
     let path_index = Path::new(&_path_index);
 
     let _path_sku = &format!("website/public/sku");
+
     let path_sku = Path::new(&_path_sku);
     if !path_sku.exists() {
+        fs::remove_dir_all(&_path_sku)?;
         fs::create_dir(_path_sku)?;
     }
     let _path_category = &format!("website/public/category");
     let path_category = Path::new(&_path_category);
     if !path_category.exists() {
+        fs::remove_dir_all(&_path_category)?;
         fs::create_dir(_path_category)?;
     }
 
     let mut v = vec!["".to_string()];
 
     let mut context = Context::new();
-    for i in 1..5000 {
+    for i in 1..120 {
         let mut context = Context::new();
         v.push(i.to_string());
         context.insert("sku", &i.to_string());
         let r = tera.render("sku.html", &context)?;
         let path = &format!("website/public/sku/{0}.html", i);
+        let mut output = File::create(path)?;
+        let _w = write!(output, "{}", r);
+    }
+
+    let mut context1 = Context::new();
+    for i in 1..12 {
+        let mut context1 = Context::new();
+        let r = tera.render("category.html", &context)?;
+        let path = &format!("website/public/category/{0}.html", i);
         let mut output = File::create(path)?;
         let _w = write!(output, "{}", r);
     }
