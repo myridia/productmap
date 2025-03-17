@@ -1,0 +1,11 @@
+
+{% extends "base.html" %}
+
+
+{% block home %}
+<ul>
+ {% for i in categories  %}
+ <li><a href="{{ i }}"> {{ i }} </a></li>
+ {% endfor %}
+</ul>
+{% endblock home %}

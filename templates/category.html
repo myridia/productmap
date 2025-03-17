@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block category %}
+<ul>
+ {% for i in products  %}
+ <li><a href="{{ i }}"> {{ i }} </a></li>
+ {% endfor %}
+</ul>
+{% endblock category %}

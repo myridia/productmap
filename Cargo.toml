@@ -9,7 +9,7 @@ publish = false
 tera = { version = "*", default-features = false }
 couch_rs = {version ="*"}
 serde_json = {version ="*"}
-tokio = {version = "1.11.0", features = ["full"]}
-tokio-util = {version = "0.7.3", features = ["full"]}
-anyhow = {version = "1.0.62"}
+tokio = {version = "*", features = ["full"]}
+tokio-util = {version = "*", features = ["full"]}
+anyhow = {version = "*"}
 
